@@ -1,8 +1,9 @@
 ﻿using TestApp.Models;
+using TestApp.Services;
 
 namespace TestApp.Service
 {
-    public class TodoServices
+    public class TodoServices:ITodoRepository
     {
         public List<Todo> AllTodos()
         {

@@ -1,7 +1,8 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
-using TestApp.Models;
 using TestApp.Service;
+using TestApp.Services;
+
 
 namespace TestApp.Controllers
 {
@@ -9,11 +10,11 @@ namespace TestApp.Controllers
     [ApiController]
     public class TodosController : ControllerBase
     {
-        private TodoServices _service;
+        private readonly ITodoRepository _service;
 
-        public TodosController()
+        public TodosController(ITodoRepository repository)
         {
-            _service = new TodoServices();
+            _service = repository;
         }
 
         [HttpGet("id")]
