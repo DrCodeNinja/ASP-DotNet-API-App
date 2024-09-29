@@ -1,5 +1,6 @@
-using TestApp.Service;
-using TestApp.Services;
+
+using TestApp.Services.Authors;
+using TestApp.Services.Todos;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -9,7 +10,9 @@ builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
-builder.Services.AddScoped<ITodoRepository, TodoServices>();
+builder.Services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());//Inject Auttomapper For all controllers
+builder.Services.AddScoped<ITodoRepository, TodoMySqlServerService>();
+builder.Services.AddScoped<IAuthorRepository, AuthorService>();
 
 var app = builder.Build();
 

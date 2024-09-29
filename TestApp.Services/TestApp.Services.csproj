@@ -7,6 +7,11 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="AutoMapper" Version="13.0.1" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\TestApp.DataAccess\TestApp.DataAccess.csproj" />
     <ProjectReference Include="..\TestApp.Models\TestApp.Models.csproj" />
   </ItemGroup>
 

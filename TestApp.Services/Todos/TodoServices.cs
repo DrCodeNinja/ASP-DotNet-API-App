@@ -1,11 +1,10 @@
 ﻿using TestApp.Models;
-using TestApp.Services;
 
-namespace TestApp.Service
+namespace TestApp.Services.Todos
 {
-    public class TodoServices:ITodoRepository
+    public class TodoServices : ITodoRepository
     {
-        public List<Todo> AllTodos()
+        public List<Todo> AllTodos(int authorId)
         {
             var todos = new List<Todo>();
 
@@ -43,6 +42,11 @@ namespace TestApp.Service
             todos.Add(todo2);
             todos.Add(todo3);
             return todos;
+        }
+
+        public Todo GetTodo(int authorId, int id)
+        {
+            throw new NotImplementedException();
         }
     }
 }
